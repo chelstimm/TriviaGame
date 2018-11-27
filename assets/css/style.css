@@ -1,0 +1,81 @@
+body {
+    background: url(../images/Christmas\ Background.jpg) no-repeat center center fixed;
+    border: 15px solid white;
+    border-top: 0px;
+    border-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    color: darkred;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 90px;
+    margin-left: 120px;
+    position: fixed;
+}
+
+h1 {
+    color:darkred;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+h6 {
+    color:darkred;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    }
+p {
+    color: darkgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 30px;
+
+}
+#show-number {
+    text-align: center;
+    padding: 10px;
+}
+
+#multipleChoice {
+    background: white;
+    width: 50%;
+    height: auto;
+    margin-left: 500px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 6px solid darkred;
+}
+#sidebar {
+    background: transparent;
+    height: auto;
+    padding: 30px;
+    position: fixed;
+    margin-top: 112px;
+    margin-left: 190px;
+}
+
+#buttonStart {
+    color: darkred;
+    background-color: transparent;
+    border: 3px solid darkred;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+#buttonSubmit {
+    color: darkred;
+    background-color: transparent;
+    border: 3px solid darkred;
+    margin: 0 auto;
+
+}
+#results {
+
+}
