@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#start-button").click(function () {
+
         //Questions//
         var allQuestions = [{
             question: "Which movie appears on Television more times than any other holiday movie?",
@@ -46,23 +46,20 @@ $(document).ready(function () {
         //Game Setup//
         var score = 0;
         var number = 0;
-        var questionList = $("#questions");
-        
         var start = $("#buttonStart");
-        var stop = $("#buttonStop");
+        var submit = $("#buttonSubmit");
         var restart = $("#buttonRestart");
         var currentQuestion = $("#current-question");
-        var answers = new Array(allQuestions.length);
-        var answers = [q1 = 0;
-            q2 = 3;
-            q3 = 3;
-            q4 = 1;
-            q5 = 2;
-            q6 = 1;
-            q7 = 2;
-            q8 = 0;
-            q9 = 3;
-            q10 = 1;];
+        var answers = [q1 = 0,
+        q2 = 3,
+        q3 = 3,
+        q4 = 1,
+        q5 = 2,
+        q6 = 1,
+        q7 = 2,
+        q8 = 0,
+        q9 = 3,
+        q10 = 1];
 
         //Timer Countdown//
         var number = 120;
@@ -70,21 +67,23 @@ $(document).ready(function () {
         //On Click Events//
         //  When the start button gets clicked, run the start function. 
         $("#buttonStart").on("click", start);
-        //  When the stop button gets clicked, run the stop function.
-        $("#buttonStop").on("click", stop);
+        //  When the submit button gets clicked, run the submit function.
+        $("#buttonSubmit").on("click", submit);
         //  When the restart button gets clicked, run the restart function.
         $("#buttonRestart").on("click", restart);
 
-        console.log(allQuestions.answers);
-        
         //Functions
         function start() {
             counter = setInterval(timer, 1000);
-
+            $("#start-button").click(function () {
+                $("#multipleChoice").show();
+                $("#results").hide();
+                $("#buttonRestart").hide();
         }
+       
         function timer() {
             number-- // decrements the timer by 1
-            $("#show-number").html("<h2>" + number + "</h2>");
+            $("#buttonStart").html("<h2>" + number + "</h2>");
             if (number === 0) {
                 alert("Times Up!")
                 stop(); // calls the stop function
@@ -93,10 +92,19 @@ $(document).ready(function () {
         function stop() {
             clearInterval(counter); // stops the timer
             $("#results").show();
-            $("#restart").show();
-            $("#question").hide();
-            $("#answers").hide();
-            $("#submit").hide();
+            $("#buttonRestart").show();
+            $("#multipleChoice").hide();
+        }
+
+        var amountCorrect = 0;
+        for(var i = 1; i <= 10; i++) {
+          var radios = document.getElementsByName("group" + i);
+          for(var j = 0; j < radios.length; j++) {
+            var radio = radios[j];
+            if(radio.value === "correct" && radio.checked) {
+              amountCorrect++;
+            }
+          }
         }
         function stop() {
             number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
