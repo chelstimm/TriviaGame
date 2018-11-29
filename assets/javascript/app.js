@@ -1,7 +1,8 @@
 $(document).ready(function() {
   
-
        //Variables//
+       var answersCorrect = $("#answersCorrect");
+       var answersWrong = $("#answersWrong");
        var correct = 0;
        var wrong = 0;
        var start = $("#buttonStart");
@@ -10,7 +11,6 @@ $(document).ready(function() {
        var questions = $("#question")
        var results = $("#results")
        var quiz = $("#multipleChoice")
-       console.log(questions)
 
     start.on("click", function () {
     var number = 5;
@@ -26,28 +26,19 @@ $(document).ready(function() {
     // restart.on("click", restartGame);
 
     //Functions
-  
+
     setTimeout = setInterval(timer, 1000);
     $("#show-number").show();
-    
-    
-   
-   
-    // start.on("click", setup);
-   
+       
     function timer() {
     // decrements the timer by 1
         number--;
-        console.log("hello")
+        console.log(number)
         $("#show-number").text(number);
         if (number === 0) {
             alert("Times Up!")
             stop(); // calls the stop function
         }
-        // else (number == 0) {
-        //     alert("Let's see how you did!")
-        //     stop();
-        // }
     }
    function stop (){
     clearInterval(setTimeout);
@@ -57,24 +48,28 @@ $(document).ready(function() {
         $("#show-number").hide();
         timer();
    }
+})
 
-        //     for(var i = 1; i <= 10; i++) {
+   
+//    if (radio.value = correct)
+//    correct++;
+//    else (//radio button clicked// = not correct)
+//    wrong++;
+
         //       var radios = document.getElementsById("#question" + i);
         //       for(var j = 0; j < radios.length; j++) {
         //         var radio = radios[j];
         //         if(radio.value === "correct" && radio.checked) {
         //           amountCorrect++;
+
+
         //$("form input[type='radio']:checked").val();
 
         //         }
         //       }
         //     }
         // }
-        // //Restart Game//
-        //     function restartGame() {
-        //         number = 5;
-        //         setup();
-        //     }
+      
 
         // function setup(){
         //     $("#show-number").show();
@@ -86,15 +81,26 @@ $(document).ready(function() {
             // // ----------------------------------------------------------------
             // //calling functions
             // setup(); // calls the start function
-   
-   
-           }
-         )
+          
+     
+
          function setup(){
             quiz.show();
             results.hide();
              restart.hide();
          }
+        //Restart Game//
+        restart.on("click", function () {
+            clearInterval(setTimeout);
+            quiz.show();
+            results.hide();
+            restart.show();
+            number = 5;
+            $("#show-number").text(number);
+            $("#show-number").show();
+            setup();
+            timer();
+})
              submit.on("click", function () {
                 alert("Let's see how you did!!")
                 clearInterval(setTimeout);
@@ -102,6 +108,20 @@ $(document).ready(function() {
                 restart.show();
                 quiz.hide();
                 $("#show-number").hide();
-        })
-    });
-    // * The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
+})
+       //Answers
+         var answers = $("#").val().trim();
+         for(var i = 0; i <= questions; i++) {
+          var radios = document.getElementsById("#question" + i);
+          for(var j = 0; j < radios.length; j++) {
+          var radio = radios[j];
+           if(radio.value === "correct" && radio.checked) {
+              correct++;
+      
+              answersCorrect.text(correct);
+              answersWrong.text(wrong)
+            }}};
+           
+})
+setup();
+    //  The page will reveal the number of questions that players answer correctly and incorrectly.
