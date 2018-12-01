@@ -5,8 +5,6 @@ $(document).ready(function () {
 
     var correct = 0;
     var wrong = 0;
-    var correctMatch = true;
-    var wrongMatch = false;
     var start = $("#buttonStart");
     var submit = $("#buttonSubmit");
     var restart = $("#buttonRestart");
@@ -94,16 +92,33 @@ $(document).ready(function () {
     //Answers
     var answersCorrect = $("#answersCorrect");
     var answersWrong = $("#answersWrong");
+    //Checking to see if correct radio button was clicked and incrementing right answers
 
-
-    // var selectedAnswer = $('input:radio[value=1]:checked').val();
-    var selectedAnswer = $("input[id='answer']:checked").val();
-    console.log(selectedAnswer)
-
-    if (selectedAnswer != undefined)
-        wrong++;
-    else (selectedAnswer === "correct")
+    // for (var i = 0; i = questions.length; i++) {
+    //     var answerChoices = $("input:radio[id=answer" + i + "]");	 // Here we're using the i variable to iterate over each question group
+    //     for (var j = 0; j < answerChoices.length; j++) { // We'll use j to loop over the radio buttons *within* each question
+    //     }
+    // }
+    
+    var correctRadios = $('input:radio[value=correct]:checked').val();
+    console.log(correctRadios);
+    // if(correctRadios = correctRadios.length)
     correct++;
+    //Checking to see if wrong radio button was clicked and incrementing wrong answers
+    var wrongRadios = $('input:radio[value=wrong]:checked').val();
+    console.log(wrongRadios);
+    // if(wrongRadios = wrongRadios.length)
+    wrong++;
+
+
+    // var selectedAnswer = $('input:radio[value=correct]:checked').val();
+    // var selectedAnswer = $("input[id='answer']:checked").val();
+    // console.log(selectedAnswer)
+
+    // if (selectedAnswer != undefined)
+    // wrong++;
+    // else (selectedAnswer === "correct")
+    // correct++;
 
     answersCorrect.text(correct);
     answersWrong.text(wrong)
@@ -114,6 +129,7 @@ $(document).ready(function () {
         results.hide();
         restart.hide();
     }
+
     setup();
     //End of Global Scope           
 })
