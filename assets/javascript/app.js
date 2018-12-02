@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-
     //Variables//
-
     var correct = 0;
     var wrong = 0;
     var start = $("#buttonStart");
@@ -11,15 +9,15 @@ $(document).ready(function () {
     var results = $("#results")
     var quiz = $("#multipleChoice")
 
-
+    //On click function to start timer
     start.on("click", function () {
         var number = 90;
         $("#show-number").text(number);
-
+        //Setting timer and displaying on screen
         setTimeout = setInterval(timer, 1000);
         $("#show-number").show();
 
-        //Functions
+        //Timer Function
         function timer() {
             // decrements the timer by 1
             number--;
@@ -29,6 +27,7 @@ $(document).ready(function () {
                 stop(); // calls the stop function
             }
         }
+        //Stop Function
         function stop() {
             clearInterval(setTimeout);
             results.show();
@@ -38,7 +37,6 @@ $(document).ready(function () {
             timer();
         }
     })
-
     //Restart Game//
     restart.on("click", function () {
         clearInterval(setTimeout);
@@ -51,6 +49,7 @@ $(document).ready(function () {
         setup();
         timer();
     })
+    //Submitting checked Answers
     submit.on("click", function () {
         alert("Let's see how you did!!")
         clearInterval(setTimeout);
@@ -59,12 +58,12 @@ $(document).ready(function () {
         quiz.hide();
         $("#show-number").hide();
     })
-
     //Answers
+    //Variables for choices
     var answersCorrect = $("#answersCorrect");
     var answersWrong = $("#answersWrong");
-    //Checking to see if correct radio button was clicked and incrementing right answers
 
+    //Display whether chosen radio button is wrong or correct. Increment each choice.
     $(":radio[name=q]").change(function () {
         console.log(this.value);
         // var correctAnswers = 
@@ -74,20 +73,16 @@ $(document).ready(function () {
         if (this.value === "wrong") {
             wrong++;
         }
+        //Display how many questions were answered correct and wrong.
         answersCorrect.text(correct);
         answersWrong.text(wrong);
     });
 
-
-    //grab wrong answers and increment
-
-    // calls the start function
+    //Setup Function for quiz
     function setup() {
         quiz.show();
         results.hide();
         restart.hide();
     }
-
     setup();
-    //End of Global Scope           
 })
