@@ -1,12 +1,11 @@
 # TriviaGame
-
-Start Here: https://chelstimm.github.io/TriviaGame/
-
 How much do you know about the Christmas Season? See how many questions you can answer correctly!
 
 This project contains trivia questions using Javascript and Jquery.
 
 ## Instructions
+Start Here: https://chelstimm.github.io/TriviaGame/
+
 Press the "Start Button" button to start answering the trivia questions.
 
 There are four possible answers for each question. Make your guesses before the 90-second timer runs out.
