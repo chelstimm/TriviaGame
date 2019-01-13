@@ -1,4 +1,6 @@
 # TriviaGame
+![](/assets/images/Christmas%20Trivia.png)
+      
 How much do you know about the Christmas Season? See how many questions you can answer correctly!
 
 This project contains trivia questions using Javascript and Jquery.
